@@ -9,12 +9,28 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      total: 3000
+      total: 3000,
+      multiplicator: 0.66,
+      vatrate: 0.16
     }
     this.handleChange = this.handleChange.bind(this)
+    this.calculateDeposit = this.calculateDeposit.bind(this)
+    this.calculateRate = this.calculateRate.bind(this)
   }
 
-  componentDidMount() {
+  componentWillMount() {
+    this.setState({
+      deposit: this.calculateDeposit(this.state.total),
+      rate: this.calculateRate(this.state.total)
+    })
+  }
+
+  calculateDeposit(total) {
+    return (total * (this.state.vatrate + 1) * 0.1).toFixed(2)
+  }
+
+  calculateRate(total) {
+    return (total * this.state.multiplicator / 52).toFixed(2)
   }
 
   handleChange(event) {
@@ -22,8 +38,8 @@ class App extends React.Component {
 
     this.setState({
       total: sliderValue,
-      deposit: Math.round(sliderValue * (0.16 + 1)).toFixed(2),
-      rate: Math.round(sliderValue * 0.66 / 52).toFixed(2)
+      deposit: this.calculateDeposit(sliderValue),
+      rate: this.calculateRate(sliderValue)
     })
   }
 
