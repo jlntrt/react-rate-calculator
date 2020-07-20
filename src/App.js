@@ -34,12 +34,12 @@ class App extends React.Component {
   }
 
   handleChange(event) {
-    const sliderValue = event.target.value
+    const { value } = event.target
 
     this.setState({
-      total: sliderValue,
-      deposit: this.calculateDeposit(sliderValue),
-      rate: this.calculateRate(sliderValue)
+      total: value,
+      deposit: this.calculateDeposit(value),
+      rate: this.calculateRate(value)
     })
   }
 
