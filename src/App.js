@@ -4,6 +4,7 @@ import Slider from "./Slider"
 import Total from "./Total"
 import Rate from "./Rate"
 import Deposit from "./Deposit"
+import TotalInput from "./TotalInput"
 
 class App extends React.Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class App extends React.Component {
     this.calculateRate = this.calculateRate.bind(this)
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.setState({
       deposit: this.calculateDeposit(this.state.total),
       rate: this.calculateRate(this.state.total)
@@ -48,6 +49,7 @@ class App extends React.Component {
       <>
         <Slider min={300} max={9999} value={this.state.total} step={1} onSliderChange={this.handleChange} />
         <Total value={this.state.total} />
+        <TotalInput value={this.state.total} onInputChange={this.handleChange} />
         <Deposit value={this.state.deposit} />
         <Rate value={this.state.rate} />
       </>
