@@ -15,6 +15,7 @@ class App extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.calculateDeposit = this.calculateDeposit.bind(this)
     this.calculateRate = this.calculateRate.bind(this)
+    this.roundValue = this.roundValue.bind(this)
   }
 
   componentDidMount() {
@@ -25,11 +26,15 @@ class App extends React.Component {
   }
 
   calculateDeposit(total) {
-    return (total * (this.state.vatrate + 1) * 0.1).toFixed(2)
+    return this.roundValue(total * (this.state.vatrate + 1) * 0.1)
   }
 
   calculateRate(total) {
-    return (total * this.state.multiplicator / 52).toFixed(2)
+    return this.roundValue(total * this.state.multiplicator / 52)
+  }
+
+  roundValue(value) {
+    return value.toFixed(2)
   }
 
   handleChange(event) {
