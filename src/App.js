@@ -1,10 +1,8 @@
 import React from 'react';
 import './App.css';
 import Slider from "./Slider"
-import Total from "./Total"
-import Rate from "./Rate"
-import Deposit from "./Deposit"
 import TotalInput from "./TotalInput"
+import PriceRow from "./PriceRow"
 
 class App extends React.Component {
   constructor(props) {
@@ -48,10 +46,10 @@ class App extends React.Component {
     return (
       <>
         <Slider min={300} max={9999} value={this.state.total} step={1} onSliderChange={this.handleChange} />
-        <Total value={this.state.total} />
+        <PriceRow label="Gesamtpreis (netto)" value={this.state.total} />
         <TotalInput value={this.state.total} onInputChange={this.handleChange} />
-        <Deposit value={this.state.deposit} />
-        <Rate value={this.state.rate} />
+        <PriceRow label="Einmalige Kaution" value={this.state.deposit} />
+        <PriceRow label="Wöchenlichte Rate (zzgl. MwSt)" value={this.state.rate} />
       </>
     );
   }
