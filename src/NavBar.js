@@ -21,15 +21,20 @@ function NavBar() {
       path: "/calculator",
       exact: false,
       title: "Calculator"
-    }
+    },
+    {
+      path: "/advantages",
+      exact: false,
+      title: "Advantages"
+    },
   ]
 
   return (
     <nav>
       <ul>
         { routes.map((route, index) => (
-          <li>
-            <NavLink key={index} to={route.path} exact={route.exact} activeStyle={ACTIVE_STYLE}>
+          <li key={index}>
+            <NavLink to={route.path} exact={route.exact} activeStyle={ACTIVE_STYLE}>
               { route.title }
             </NavLink>
           </li>
