@@ -6,8 +6,8 @@ import PriceRow from "./PriceRow"
 
 function App() {
   const [total, setTotal] = useState(3000)
-  const [multiplicator, setMultiplicator] = useState(0.66)
-  const [vatrate, setVatrate] = useState(0.16)
+  const [multiplicator] = useState(0.66)
+  const [vatrate] = useState(0.16)
   const [deposit, setDeposit] = useState(calculateDeposit(total))
   const [weeklyRate, setWeeklyRate] = useState(calculateDeposit(total))
 
