@@ -6,18 +6,34 @@ function NavBar() {
     fontWeight: 'bold'
   }
 
+  const routes = [
+    {
+      path: "/",
+      exact: true,
+      title: "Home"
+    },
+    {
+      path: "/about",
+      exact: false,
+      title: "About"
+    },
+    {
+      path: "/calculator",
+      exact: false,
+      title: "Calculator"
+    }
+  ]
+
   return (
     <nav>
       <ul>
-        <NavLink to='/'activeStyle={ACTIVE_STYLE} exact>
-          <li>Home</li>
-        </NavLink>
-        <NavLink to='/calculator' activeStyle={ACTIVE_STYLE}>
-          <li>Calculator</li>
-        </NavLink>
-        <NavLink to='/about' activeStyle={ACTIVE_STYLE}>
-          <li>About</li>
-        </NavLink>
+        { routes.map((route, index) => (
+          <li>
+            <NavLink key={index} to={route.path} exact={route.exact} activeStyle={ACTIVE_STYLE}>
+              { route.title }
+            </NavLink>
+          </li>
+        ))}
       </ul>
     </nav>
   )
