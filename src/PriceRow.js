@@ -1,10 +1,10 @@
 import React from 'react'
+import formatPrice from './ultils/formatPrice'
 
 function PriceRow(props) {
-  const { value = 0 , label = "Unkown", currency = "EUR", country = "de-DE"} = props
-  const price = new Intl.NumberFormat(country, { style: 'currency', currency: currency }).format(value)
+  const { value , label = "Unkown" } = props
   
-  return <div>{ label }: { price }</div>
+  return <div>{ label }: { formatPrice(value) }</div>
 }
 
 export default PriceRow
