@@ -12,16 +12,17 @@ function App() {
   const [weeklyRate, setWeeklyRate] = useState(calculateDeposit(total))
 
   function calculateDeposit(total) {
-    return roundValue(total * (vatrate + 1) * 0.1)
+    return total * (vatrate + 1) * 0.1
   }
 
   function calculateRate(total) {
-    return roundValue(total * multiplicator / 52)
+    return total * multiplicator / 52
   }
 
-  function roundValue(value) {
-    return value.toFixed(2)
-  }
+  // This is deprecated. Intl.NumberFormat in <PriceRow /> do the math. 
+  // function roundValue(value) {
+  //   return value.toFixed(2)
+  // }
 
   function handleChange(event) {
     const { value } = event.target
