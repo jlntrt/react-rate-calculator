@@ -19,7 +19,8 @@ function App() {
     return total * multiplicator / 52
   }
 
-  // This is deprecated. Intl.NumberFormat in <PriceRow /> do the math. 
+  // Deprecated
+  // Intl.NumberFormat in <PriceRow /> cares about rounding the value
   // function roundValue(value) {
   //   return value.toFixed(2)
   // }
