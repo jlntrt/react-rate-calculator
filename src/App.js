@@ -34,13 +34,13 @@ function App() {
   }
 
   return (
-    <>
+    <section>
       <Slider min={300} max={9999} value={total} step={1} onSliderChange={handleChange} />
       <PriceRow label="Gesamtpreis (netto)" value={total} />
       <TotalInput value={total} onInputChange={handleChange} />
       <PriceRow label="Einmalige Kaution" value={deposit} />
       <PriceRow label="Wöchenlichte Rate (zzgl. MwSt)" value={weeklyRate} />
-    </>
+    </section>
   )
 }
 

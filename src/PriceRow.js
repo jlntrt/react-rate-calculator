@@ -4,7 +4,7 @@ import formatPrice from './ultils/formatPrice'
 function PriceRow(props) {
   const { value , label = "Unkown" } = props
   
-  return <div>{ label }: { formatPrice(value) }</div>
+  return <div>{ label }: <output>{ formatPrice(value) }</output></div>
 }
 
 export default PriceRow
